@@ -93,6 +93,10 @@ if "redis_status" not in st.session_state:
     # Check Redis connection
     redis_client = get_redis_client()
     st.session_state.redis_status = redis_client is not None
+    if not st.session_state.redis_status:
+        st.warning("⚠️ Redis connection failed. Some features may be limited. Using demo data instead.")
+    else:
+        st.success("✅ Connected to Redis successfully!")
 if "realtime_metrics" not in st.session_state:
     # Initialize real-time metrics
     st.session_state.realtime_metrics = get_realtime_metrics()
@@ -103,6 +107,9 @@ if "auto_refresh" not in st.session_state:
 if "last_refresh" not in st.session_state:
     # Initialize last refresh time
     st.session_state.last_refresh = datetime.now()
+if "connection_attempts" not in st.session_state:
+    # Initialize connection attempts counter
+    st.session_state.connection_attempts = 0
 
 # Sidebar
 with st.sidebar:
@@ -123,6 +130,23 @@ with st.sidebar:
     st.markdown("### System Status")
     redis_status = "🟢 Connected" if st.session_state.redis_status else "🔴 Disconnected"
     st.markdown(f"**Redis:** {redis_status}")
+
+    # Add reconnect button if disconnected
+    if not st.session_state.redis_status:
+        if st.button("Reconnect to Redis"):
+            # Increment connection attempts
+            st.session_state.connection_attempts += 1
+            # Try to reconnect
+            redis_client = get_redis_client()
+            st.session_state.redis_status = redis_client is not None
+            if st.session_state.redis_status:
+                st.success("Reconnected to Redis successfully!")
+                # Reinitialize real-time metrics
+                st.session_state.realtime_metrics = get_realtime_metrics()
+                # Rerun to refresh UI
+                st.rerun()
+            else:
+                st.warning(f"Failed to reconnect to Redis (Attempt {st.session_state.connection_attempts})")
 
     # About section
     st.markdown("---")

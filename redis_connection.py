@@ -2,6 +2,7 @@
 Redis connection utility for AI tools.
 """
 import os
+import sys
 from typing import Optional
 import redis
 from redis.client import Redis
@@ -13,8 +14,15 @@ load_dotenv()
 # Default Redis connection parameters
 DEFAULT_REDIS_URL = "redis://localhost:6379"
 
-# Redis Cloud connection URL (from environment variable)
-REDIS_CLOUD_URL = os.getenv("REDIS_URL", DEFAULT_REDIS_URL)
+# Try to get Redis URL from Streamlit secrets if running in Streamlit
+try:
+    import streamlit as st
+    REDIS_CLOUD_URL = st.secrets.get("redis", {}).get("url", os.getenv("REDIS_URL", DEFAULT_REDIS_URL))
+    print("Using Redis URL from Streamlit secrets")
+except (ImportError, AttributeError):
+    # If not running in Streamlit or secrets not available, use environment variable
+    REDIS_CLOUD_URL = os.getenv("REDIS_URL", DEFAULT_REDIS_URL)
+    print("Using Redis URL from environment variables")
 
 class RedisConnection:
     """

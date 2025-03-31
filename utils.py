@@ -117,10 +117,27 @@ class LLMProvider:
         # Initialize OpenAI
         if OPENAI_AVAILABLE:
             if self.use_openrouter:
-                openai.api_key = os.getenv("OPENROUTER_API_KEY")
+                # Try to get API key from Streamlit secrets if running in Streamlit
+                try:
+                    import streamlit as st
+                    openai.api_key = st.secrets.get("openrouter", {}).get("api_key", os.getenv("OPENROUTER_API_KEY"))
+                    print("Using OpenRouter API key from Streamlit secrets")
+                except (ImportError, AttributeError):
+                    # If not running in Streamlit or secrets not available, use environment variable
+                    openai.api_key = os.getenv("OPENROUTER_API_KEY")
+                    print("Using OpenRouter API key from environment variables")
+
                 openai.api_base = self.api_base
             else:
-                openai.api_key = os.getenv("OPENAI_API_KEY")
+                # Try to get API key from Streamlit secrets if running in Streamlit
+                try:
+                    import streamlit as st
+                    openai.api_key = st.secrets.get("openai", {}).get("api_key", os.getenv("OPENAI_API_KEY"))
+                    print("Using OpenAI API key from Streamlit secrets")
+                except (ImportError, AttributeError):
+                    # If not running in Streamlit or secrets not available, use environment variable
+                    openai.api_key = os.getenv("OPENAI_API_KEY")
+                    print("Using OpenAI API key from environment variables")
 
     def generate(self, prompt: str, max_tokens: int = 1000, temperature: float = 0.7) -> str:
         """
