@@ -1,0 +1,166 @@
+{
+  "last_updated": "2025-03-31",
+  "source": "Research based on market analysis and industry reports",
+  "models": [
+    {
+      "id": 1,
+      "make": "КАМАЗ",
+      "model": "54901",
+      "type": "Седельный тягач",
+      "table_name": "kamaz_54901",
+      "search_terms": ["КАМАЗ 54901", "KAMAZ 54901"]
+    },
+    {
+      "id": 2,
+      "make": "ГАЗ",
+      "model": "ГАЗель NN",
+      "type": "Малотоннажный грузовик",
+      "table_name": "gazel_nn",
+      "search_terms": ["ГАЗель NN", "GAZel NN", "Газель НН"]
+    },
+    {
+      "id": 3,
+      "make": "КАМАЗ",
+      "model": "6520",
+      "type": "Самосвал",
+      "table_name": "kamaz_6520",
+      "search_terms": ["КАМАЗ 6520", "KAMAZ 6520"]
+    },
+    {
+      "id": 4,
+      "make": "Shaanxi",
+      "model": "X3000",
+      "type": "Седельный тягач",
+      "table_name": "shaanxi_x3000",
+      "search_terms": ["Shaanxi X3000", "Шакман X3000"]
+    },
+    {
+      "id": 5,
+      "make": "FAW",
+      "model": "J6",
+      "type": "Седельный тягач",
+      "table_name": "faw_j6",
+      "search_terms": ["FAW J6", "ФАВ J6"]
+    },
+    {
+      "id": 6,
+      "make": "SITRAK",
+      "model": "C7H Max",
+      "type": "Седельный тягач",
+      "table_name": "sitrak_c7h_max",
+      "search_terms": ["SITRAK C7H Max", "СИТРАК C7H Max"]
+    },
+    {
+      "id": 7,
+      "make": "DongFeng",
+      "model": "GX",
+      "type": "Седельный тягач",
+      "table_name": "dongfeng_gx",
+      "search_terms": ["DongFeng GX", "ДонгФенг GX"]
+    },
+    {
+      "id": 8,
+      "make": "JAC",
+      "model": "N-серия",
+      "type": "Среднетоннажный грузовик",
+      "table_name": "jac_n_series",
+      "search_terms": ["JAC N", "ЯК N", "JAC N120"]
+    },
+    {
+      "id": 9,
+      "make": "КАМАЗ",
+      "model": "65115",
+      "type": "Самосвал",
+      "table_name": "kamaz_65115",
+      "search_terms": ["КАМАЗ 65115", "KAMAZ 65115"]
+    },
+    {
+      "id": 10,
+      "make": "Foton",
+      "model": "Auman",
+      "type": "Седельный тягач",
+      "table_name": "foton_auman",
+      "search_terms": ["Foton Auman", "Фотон Ауман"]
+    },
+    {
+      "id": 11,
+      "make": "КАМАЗ",
+      "model": "5490 NEO",
+      "type": "Седельный тягач",
+      "table_name": "kamaz_5490_neo",
+      "search_terms": ["КАМАЗ 5490 NEO", "KAMAZ 5490 NEO"]
+    },
+    {
+      "id": 12,
+      "make": "Isuzu",
+      "model": "ELF",
+      "type": "Малотоннажный грузовик",
+      "table_name": "isuzu_elf",
+      "search_terms": ["Isuzu ELF", "Исузу ELF", "Исузу Эльф"]
+    },
+    {
+      "id": 13,
+      "make": "Sitrak",
+      "model": "C7H",
+      "type": "Седельный тягач",
+      "table_name": "sitrak_c7h",
+      "search_terms": ["Sitrak C7H", "Ситрак C7H"]
+    },
+    {
+      "id": 14,
+      "make": "МАЗ",
+      "model": "5440",
+      "type": "Седельный тягач",
+      "table_name": "maz_5440",
+      "search_terms": ["МАЗ 5440", "MAZ 5440"]
+    },
+    {
+      "id": 15,
+      "make": "Howo",
+      "model": "T5G",
+      "type": "Седельный тягач",
+      "table_name": "howo_t5g",
+      "search_terms": ["Howo T5G", "Хово T5G"]
+    },
+    {
+      "id": 16,
+      "make": "JAC",
+      "model": "S-серия",
+      "type": "Седельный тягач",
+      "table_name": "jac_s_series",
+      "search_terms": ["JAC S", "ЯК S"]
+    },
+    {
+      "id": 17,
+      "make": "DongFeng",
+      "model": "Captain-T",
+      "type": "Среднетоннажный грузовик",
+      "table_name": "dongfeng_captain_t",
+      "search_terms": ["DongFeng Captain-T", "ДонгФенг Captain-T", "Донгфенг Капитан-Т"]
+    },
+    {
+      "id": 18,
+      "make": "Changan",
+      "model": "M9",
+      "type": "Малотоннажный грузовик",
+      "table_name": "changan_m9",
+      "search_terms": ["Changan M9", "Чанган M9"]
+    },
+    {
+      "id": 19,
+      "make": "Shacman",
+      "model": "X3000",
+      "type": "Самосвал",
+      "table_name": "shacman_x3000",
+      "search_terms": ["Shacman X3000", "Шакман X3000"]
+    },
+    {
+      "id": 20,
+      "make": "JAC",
+      "model": "X200",
+      "type": "Малотоннажный грузовик",
+      "table_name": "jac_x200",
+      "search_terms": ["JAC X200", "ЯК X200"]
+    }
+  ]
+}
