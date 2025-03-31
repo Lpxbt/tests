@@ -43,11 +43,30 @@ The Streamlit dashboard provides:
    pip install -r requirements.txt
    ```
 
-4. Create a `.env` file with your Redis and OpenRouter credentials:
+4. Set up Redis credentials:
+
+   **Option 1: Using .env file (for local development)**
+   Create a `.env` file with your Redis and OpenRouter credentials:
    ```
    REDIS_URL=redis://username:password@host:port
    OPENROUTER_API_KEY=your_openrouter_api_key
    ```
+
+   **Option 2: Using Streamlit secrets (for Streamlit Cloud deployment)**
+   Create a `.streamlit/secrets.toml` file with your Redis and OpenRouter credentials:
+   ```toml
+   [redis]
+   url = "redis://username:password@host:port"
+
+   [openrouter]
+   api_key = "your-openrouter-api-key"
+   ```
+
+5. Set up Redis Cloud (recommended):
+   - Sign up for a free Redis Cloud account at https://redis.com/try-free/
+   - Create a new database
+   - Get the connection details (host, port, username, password)
+   - Update your credentials in the `.env` or `.streamlit/secrets.toml` file
 
 ## Usage
 
@@ -86,10 +105,10 @@ import asyncio
 async def main():
     # Initialize scraper
     scraper = AvitoPlaywrightScraper(use_llm=True)
-    
+
     # Scrape a category
     vehicles = await scraper.scrape_category("trucks", max_pages=1, max_vehicles=3)
-    
+
     # Save results
     scraper.save_to_json(vehicles, "scraped_vehicles.json")
     scraper.save_to_csv(vehicles, "scraped_vehicles.csv")
@@ -105,7 +124,20 @@ asyncio.run(main())
 1. Push your code to GitHub
 2. Go to [Streamlit Cloud](https://streamlit.io/cloud)
 3. Connect your GitHub repository
-4. Deploy the app
+4. Set up your secrets in the Streamlit Cloud dashboard:
+   - Go to your app settings
+   - Click on "Secrets"
+   - Add your Redis and OpenRouter credentials in TOML format:
+     ```toml
+     [redis]
+     url = "redis://username:password@host:port"
+
+     [openrouter]
+     api_key = "your-openrouter-api-key"
+     ```
+5. Deploy the app
+
+You can see a live example at: https://scotty.streamlit.app/
 
 ### Docker
 
